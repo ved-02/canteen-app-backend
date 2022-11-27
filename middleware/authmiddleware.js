@@ -8,8 +8,7 @@ const auth = (req, res, next) => {
                 res.json({ error: "authentication failed" });
             }
             else {
-                res.email = decoded.email;
-                console.log(res.email);
+                req.email = decoded.email;
                 next();
             }
         });

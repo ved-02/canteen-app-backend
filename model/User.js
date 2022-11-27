@@ -10,11 +10,14 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    name: {
+        type: String
+    },
     university_rollno: {
         type: String,
         required: true
     },
-    money_spent: {
+    money_due: {
         type: Number,
         default: 0
     }

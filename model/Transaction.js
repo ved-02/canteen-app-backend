@@ -1,22 +1,22 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
+const transactionSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
         unique: true
     },
     item_list: {
-        type: {},
+        type: [],
     },
     date: {
-        type: date,
+        type: Date,
         default: new Date()
     }
 },
-    { collection: "Users" }
+    { collection: "Transactions" }
 );
 
-const model = mongoose.model("User", userSchema);
+const model = mongoose.model("Transaction", transactionSchema);
 
 module.exports = model;
