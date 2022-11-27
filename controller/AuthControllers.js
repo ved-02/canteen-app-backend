@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 
 const registerController = async (req, res) => {
-    const { email, password, university_rollno, name } = req.body;
+    const { email, password, university_rollno, name, address } = req.body;
     if (!name || typeof name !== "string" || !email || typeof email !== "string" || !password || typeof password !== "string" || !university_rollno || typeof university_rollno !== "string") {
         res.json({ success: false, error: "Incorrect Credentials" });
         return;
@@ -14,7 +14,7 @@ const registerController = async (req, res) => {
         return;
     }
     try {
-        const response = await userDB.create({ email: email, password: password, university_rollno: university_rollno, money_due: 0 });
+        const response = await userDB.create({ email: email, password: password, university_rollno: university_rollno, name, address, money_due: 0 });
         const token = jwt.sign({ email: email }, process.env.TOKEN_KEY);
         console.log(token);
         res.status(201).json({ success: true, message: "Created", token: token });

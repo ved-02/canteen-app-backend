@@ -13,6 +13,9 @@ const userSchema = mongoose.Schema({
     name: {
         type: String
     },
+    address:{
+        type: String
+    },
     university_rollno: {
         type: String,
         required: true
