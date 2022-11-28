@@ -4,7 +4,6 @@ const transactionSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
     },
     item_list: {
         type: [],
